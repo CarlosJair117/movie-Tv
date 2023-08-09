@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kc_tv_app/widgets/suggestion_card.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -12,13 +13,18 @@ class _StartScreenState extends State<StartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Image.asset('assets/img/youtube_logo.png'),
+        ),
         title: Text( 'KC TV', style: Theme.of(context).textTheme.headlineLarge,),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Tarjeta de recomendaciones', style: Theme.of(context).textTheme.bodyMedium,)
+            Text('Recomendado para ti', style: Theme.of(context).textTheme.headlineLarge,),
+            const SuggestionCard(),
           ],
         ),
       ),

@@ -1,0 +1,10 @@
+{
+    "video1":{
+        "url": "http://www.youtube.com",
+        "title": "Video 1",
+        "mini": "assets/img/trasnformers.jpeg",
+        "duration": "15:00",
+        "date": "05/25/2023",
+        "description": "Descripcion del video"
+    }
+}
