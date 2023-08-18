@@ -17,17 +17,24 @@ class _StartScreenState extends State<StartScreen> {
           padding: const EdgeInsets.all(2.0),
           child: Image.asset('assets/img/youtube_logo.png'),
         ),
-        title: Text( 'KC TV', style: Theme.of(context).textTheme.headlineLarge,),
+        title: Text( 'Movie TV', style: Theme.of(context).textTheme.headlineLarge,),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Recomendado para ti', style: Theme.of(context).textTheme.headlineLarge,),
-            const SuggestionCard(),
-          ],
+        
+        child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: const  <Widget>[
+                Center(
+                  child: Text('Recomendado para ti', style: TextStyle( fontSize: 40),),
+                ),
+                Center( child:SuggestionCard()),
+                SuggestionCard(),
+                SuggestionCard(),
+              ],
+            ),
+          
         ),
-      ),
+      
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem> [
           BottomNavigationBarItem(
