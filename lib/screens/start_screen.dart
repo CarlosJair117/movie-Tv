@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kc_tv_app/widgets/suggestion_card.dart';
+import 'package:kc_tv_app/screens/other_screen.dart';
+import 'package:kc_tv_app/screens/second_screen.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -9,8 +10,14 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
+  
+  int selectedIndex = 0; 
+
   @override
   Widget build(BuildContext context) {
+
+    final screens = [const SecondScreen(), const OtherScreen()];
+
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -19,26 +26,7 @@ class _StartScreenState extends State<StartScreen> {
         ),
         title: Text( 'Movie TV', style: Theme.of(context).textTheme.headlineLarge,),
       ),
-      body: Center(
-        
-        child: GestureDetector(
-          
-          child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: const <Widget>[
-                  SizedBox(width: 20,),
-                  Center(
-                    child: Text('Recomendado para ti', style: TextStyle( fontSize: 40),),
-                  ),
-                  SizedBox(width: 20,),
-                  SuggestionCard( img: 'assets/img/pianista.jpg', url: 'https://youtu.be/yDA1mK6v-ME', titulo: 'El pianista',),
-                  SuggestionCard( img: 'assets/img/trasnformers.jpeg', url: 'https://youtu.be/v0d0id78XdE', titulo: 'Tranformers',),
-                  SuggestionCard( img: 'assets/img/avengers.jpg', url: 'https://youtu.be/yNXfOOL8824', titulo: 'Avengers',),
-                ],
-              ),
-        ),
-          
-        ),
+      body: screens[selectedIndex],
       
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem> [
@@ -50,7 +38,7 @@ class _StartScreenState extends State<StartScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.video_camera_back),
             label: 'Videos',
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.red
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_balance_rounded),
@@ -59,7 +47,11 @@ class _StartScreenState extends State<StartScreen> {
           ),
         ],
         backgroundColor: Colors.amber,
-        onTap: (value) => {},
+        onTap: (value) {
+          setState(() {
+            selectedIndex = value;
+          });
+        },
         ),
     );
   }
