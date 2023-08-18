@@ -21,17 +21,21 @@ class _StartScreenState extends State<StartScreen> {
       ),
       body: Center(
         
-        child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: const  <Widget>[
-                Center(
-                  child: Text('Recomendado para ti', style: TextStyle( fontSize: 40),),
-                ),
-                Center( child:SuggestionCard()),
-                SuggestionCard(),
-                SuggestionCard(),
-              ],
-            ),
+        child: GestureDetector(
+          
+          child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const <Widget>[
+                  SizedBox(width: 20,),
+                  Center(
+                    child: Text('Recomendado para ti', style: TextStyle( fontSize: 40),),
+                  ),
+                  SizedBox(width: 20,),
+                  SuggestionCard( img: 'assets/img/pianista.jpg', url: 'https://youtu.be/yDA1mK6v-ME', titulo: 'El pianista',),
+                  SuggestionCard( img: 'assets/img/trasnformers.jpeg', url: 'https://youtu.be/v0d0id78XdE', titulo: 'Tranformers',),
+                ],
+              ),
+        ),
           
         ),
       

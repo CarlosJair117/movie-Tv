@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:kc_tv_app/screens/player_screen.dart';
 
 class SuggestionCard extends StatelessWidget {
-  const SuggestionCard({super.key});
+  final String img;
+  final String url;
+  final String titulo;
+
+  const SuggestionCard({super.key, required this.img, required this.url, required this.titulo});
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +20,17 @@ class SuggestionCard extends StatelessWidget {
               Navigator.push(
                 context, 
                 MaterialPageRoute(
-                  builder: (context) => const PlayerScreen(url: 'https://youtu.be/v0d0id78XdE')
+                  builder: (context) => PlayerScreen(url: url)
                 )
               );
             },
-            child: const Image(image: AssetImage('assets/img/pianista.jpg'))
+            child: Image(image: AssetImage(img))
           ),
         ),
         const SizedBox( width: 20.0,),
         Column(
           children: [
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             SizedBox(
               width: 300,
               height: 50,
@@ -35,7 +39,7 @@ class SuggestionCard extends StatelessWidget {
             SizedBox(
               width: 300,
               height: 100,
-              child: Text('Pelicaula de Transformers', style: Theme.of(context).textTheme.bodyMedium),
+              child: Text(titulo, style: Theme.of(context).textTheme.bodyMedium),
             ),
             SizedBox(
               width: 300,
