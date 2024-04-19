@@ -16,7 +16,7 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
 
-    final screens = [const SecondScreen(), const OtherScreen()];
+    final screens = [const OtherScreen(), const SecondScreen()];
 
     return Scaffold(
       appBar: AppBar(
@@ -24,7 +24,7 @@ class _StartScreenState extends State<StartScreen> {
           padding: const EdgeInsets.all(2.0),
           child: Image.asset('assets/img/youtube_logo.png'),
         ),
-        title: Text( 'Movie TV', style: Theme.of(context).textTheme.headlineLarge,),
+        title: Text( 'Pelis TV', style: Theme.of(context).textTheme.headlineLarge,),
       ),
       body: screens[selectedIndex],
       
